@@ -13,16 +13,3 @@ export const config: Knex.Config = {
 }
 
 export const knex = setupKnex(config)
-
-export async function setupDatabase() {
-  try {
-    await knex.raw(`CREATE DATABASE IF NOT EXISTS ${env.DATABASE_URL};`)
-  } catch (error) {
-    console.error('Error to setup database')
-    console.error(error)
-  } finally {
-    if (env.NODE_ENV === 'development') {
-      console.log('Successfull setup database')
-    }
-  }
-}

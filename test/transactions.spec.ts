@@ -10,12 +10,10 @@ import {
 import { execSync } from 'node:child_process'
 import request from 'supertest'
 
-import { setupDatabase } from '../src/database'
 import { app } from '../src/app'
 
 describe('Transactions routes', () => {
   beforeAll(async () => {
-    await setupDatabase()
     await app.ready()
   })
 
